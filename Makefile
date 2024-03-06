@@ -24,13 +24,11 @@ MLX_FLAGS = -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
 
 
 SRC = 	main.c \
-		color.c \
-		draw.c	\
-		mapping.c \
-		points.c	\
-		sizing.c	\
-		utils.c	 \
-		hooks.c
+		draw.c \
+		fdf.c \
+		map_data.c \
+		points.c \
+		utils.c \
 
 all: $(NAME)
 
