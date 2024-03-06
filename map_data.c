@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_data.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/06 20:45:34 by mcruz-sa          #+#    #+#             */
+/*   Updated: 2024/03/06 20:45:36 by mcruz-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "fdf.h"
 
 void	map_size(t_data *data, char *filename)
@@ -45,7 +58,7 @@ void	map_format(t_data *data, char *filename)
 			i++;
 		}
 		free(map);
-		if (i != data->max_x)
+		if (i < data->max_x)
 			print_error("Wrong map format");
 		free(line);
 	}
