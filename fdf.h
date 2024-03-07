@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:50 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/06 20:45:52 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/07 15:05:24 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_data
 	int		min_z;
 	int		x_center;
 	int		y_center;
-	int		scale;
+	float		scale;
 	int		translation;
 	int		i;
 	float	min_x_value;
@@ -77,6 +77,8 @@ typedef struct s_data
 	char	*map_path;
 	int		win_width;
 	int		win_height;
+	float	alpha;
+	float	altitude;
 	t_point	**table;
 	t_final	*final_table;
 } t_data;
@@ -87,6 +89,8 @@ int print_error(char *error);
 t_data  init_values(t_data *data);
 void    center_map(t_data *data);
 void find_min_max(t_data *data);
+void	adjust_negatives(t_data *data);
+void	calculate_scale(t_data *data);
 
 // map_data.c
 void	map_size(t_data *data, char *filename);
@@ -108,10 +112,12 @@ void	connect_x_y(t_data *data, int i);
 int	init_fdf(t_data *data);
 
 // draw.c
-void 	dda_algo(t_data *data, t_final a, t_final b);
+// void 	dda_algo(t_data *data, t_point a, t_point b);
+void dda_algo(t_data *data, t_final a, t_final b);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-// void 	isometric_projection(t_data *data);
-void isometric_projection(t_final *x, t_final *y);
+void 	isometric_projection(t_data *data);
+// void isometric_projection(t_final *x, t_final *y);
+// void	isometric_projection(t_point *x, t_point *y);
 
 // hooks.c
 void	ft_hooks(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:55 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/06 20:37:35 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:11:46 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,31 @@
 
 void dda_algo(t_data *data, t_final a, t_final b)
 {
-	float	step;
-	float	x;
-	float	y;
-	int		i;
-	t_delta	d;
-	// int		offx;
-	// int		offy;
+    float   step;
+    float   x;
+    float   y;
+    int     i;
+    t_delta d;
 
-	// offx = (data->win_width - (data->max_x * data->scale)) / 2;
-	// offy = (data->win_height - (data->max_y * data->scale)) / 2;
-	i = 0;
-	d.dx = b.x - a.x;
-	d.dy = b.y - a.y;
-	if (fabsf(d.dx) >= fabsf(d.dy))
-		step = fabsf(d.dx);
-	else
-		step = fabsf(d.dy);
-	d.dx = d.dx / step;
-	d.dy = d.dy / step;
-	x = a.x;
-	y = a.y;
-	while (i < step)
-	{
-		my_mlx_pixel_put(data, x  + data->translation, \
-						 y  + data->translation, RED); // data->translation missing
-		x = x + d.dx;
-		y = y + d.dy;
-		i++;
-	}
+    i = 0;
+    d.dx = b.x - a.x;
+    d.dy = b.y - a.y;
+    if (fabsf(d.dx) >= fabsf(d.dy))
+        step = fabsf(d.dx);
+    else
+        step = fabsf(d.dy);
+    d.dx = d.dx / step;
+    d.dy = d.dy / step;
+    x = a.x;
+    y = a.y;
+    while (i < step)
+    {
+        my_mlx_pixel_put(data, x + data->translation, \
+                         y + data->translation, RED);
+        x = x + d.dx;
+        y = y + d.dy;
+        i++;
+    }
 }
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -54,45 +50,67 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 			*(unsigned int *)dst = color;
 		}
 }
+
+
 /*
 x' = (x - y) * cos(30)
 y' = (x + y) * sin(30) - z*/
-// void isometric_projection(t_data *data)
-// {
-// 	float	iso_x;
-// 	float	iso_y;	
-// 	int		x;
-// 	int		y;
-// 	int		index;
+void isometric_projection(t_data *data)
+{
+	float	iso_x;
+	float	iso_y;	
+	int		x;
+	int		y;
+	int		index;
 	
-// 	y = 0;
-// 	while (y < data->max_y)
-// 	{
-// 		x = 0;
-// 		while (x < data->max_x)
-// 		{
-// 			index = y * data->max_x + x;
-// 			iso_x = (data->table[y][x].x - data->table[y][x].y * cos(DEG_TO_RAD(30)));
-// 			iso_y = (data->table[y][x].x + data->table[y][x].y * sin(DEG_TO_RAD(30))) - data->table[y][x].z;
-// 			data->final_table[index].x = iso_x;
-// 			data->final_table[index].y = iso_y;
-// 			// printf("iso_x: %f || iso_y: %f\n", data->final_table[index].x, data->final_table[index].y);
-// 			x++;
-// 		}
-// 		y++;
-// 	}
+	y = 0;
+	while (y < data->max_y)
+	{
+		x = 0;
+		while (x < data->max_x)
+		{
+			index = y * data->max_x + x;
+			iso_x = (data->table[y][x].x - data->table[y][x].y) * cos(DEG_TO_RAD(30));
+			iso_y = (-data->table[y][x].z + (data->table[y][x].x + data->table[y][x].y) *sin(DEG_TO_RAD(30)));
+			// if (iso_x < 0)
+			// 	iso_x *= -1;
+			// if (iso_y < 0)
+			// 	iso_y *= -1;
+			// data->table[y][x].x = iso_x;
+			// data->table[y][x].y = iso_y;
+			data->final_table[index].x = iso_x * data->scale;
+			data->final_table[index].y = iso_y * data->scale;
+			printf("iso_x: %f || iso_y: %f\n", data->final_table[index].x, data->final_table[index].y);
+			x++;
+		}
+		y++;
+	}
+}
+// void	isometric_projection(t_point *x, t_point *y)
+// {
+// 	float	old_x = x->x;
+// 	float	old_y = y->y;
+
+// 	x->x = (old_x - old_y) * cos(0.523599);
+// 	x->y = (old_x + old_y - (2 * y->z)) * sin(0.523599);
+
+// 	old_x = x->x;
+// 	old_y = y->y;
+
+// 	y->x = (old_x - old_y) * cos(0.523599);
+// 	y->y = (old_x + old_y - 2 * y->z) * sin(0.523599);
 // }
 
-void isometric_projection(t_final *x, t_final *y)
-{
-	t_final old_x;
-	t_final	old_y;
+// void isometric_projection(t_final *x, t_final *y)
+// {
+// 	t_final old_x;
+// 	t_final	old_y;
 
-	old_x = *x;
-	old_y = *y;
-	x->x = (old_x.x - old_x.y) * cos(0.523599);
-	x->y = (old_x.x - old_x.y) * sin(0.523599);
-	y->x = (old_y.x - old_y.y) * cos(0.523599);
-	y->y = (old_y.x + old_y.y) * sin(0.523599);
-	printf("x->x = %f || x->y = %f\n", x->x, x->y);
-}
+// 	old_x = *x;
+// 	old_y = *y;
+// 	x->x = (old_x.x - old_x.y) * cos(0.523599);
+// 	x->y = (old_x.x - old_x.y) * sin(0.523599);
+// 	y->x = (old_y.x - old_y.y) * cos(0.523599);
+// 	y->y = (old_y.x + old_y.y) * sin(0.523599);
+// 	printf("x->x = %f || x->y = %f\n", x->x, x->y);
+// }
