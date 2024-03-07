@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:59:56 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/06 15:00:34 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:02:48 by jimenasando      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,21 @@ int	close_win(t_data *data)
 	mlx_destroy_window(data->mlx, data->win);
 	exit(0);
 }
+
+// and idea for zooming
+// void handle_event(t_data *data, SDL_Event event)
+// {
+//     if (event.type == SDL_MOUSEWHEEL)
+//     {
+//         if (event.wheel.y > 0) // scroll up
+//         {
+//             data->zoom *= 1.1; // zoom in
+//         }
+//         else if (event.wheel.y < 0) // scroll down
+//         {
+//             data->zoom /= 1.1; // zoom out
+//         }
+
+//         calculate_scale(data);
+//     }
+// }

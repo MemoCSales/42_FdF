@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 20:45:15 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 18:17:34 by mcruz-sa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 int main(int argc, char **argv)
@@ -28,6 +16,7 @@ int main(int argc, char **argv)
 	map_parse(&filename, filename.map_path);
 	find_min_max(&filename);
 	calculate_scale(&filename);
+	// center_map(&filename);
 	init_fdf(&filename);
 	// print_final_table(&filename);
 	// print_map(&filename);

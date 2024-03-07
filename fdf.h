@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:50 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 15:05:24 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:11:23 by jimenasando      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "mlx_linux/mlx.h"
+// # include "mlx_linux/mlx.h"
+// # include "X11/X.h"
+// # include "X11/keysym.h"
+# include "mlx_macos/mlx.h"
 # include "srcs/ft_printf.h"
 # include "./libft/libft.h"
-# include "X11/X.h"
-# include "X11/keysym.h"
 # include <math.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -31,6 +32,7 @@
 
 # define DEG_TO_RAD(degrees) ((degrees) * PI / 180.0)
 # define RED 0XFF0000
+# define WHITE 0XFFFFFF
 
 typedef struct s_point
 {
@@ -74,6 +76,8 @@ typedef struct s_data
 	float	min_y_value;
 	float	max_x_value;
 	float	max_y_value;
+	float	offset_x;
+	float	offset_y;
 	char	*map_path;
 	int		win_width;
 	int		win_height;

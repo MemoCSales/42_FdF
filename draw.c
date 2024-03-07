@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:55 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 18:11:46 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:21:43 by jimenasando      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void dda_algo(t_data *data, t_final a, t_final b)
     y = a.y;
     while (i < step)
     {
-        my_mlx_pixel_put(data, x + data->translation, \
-                         y + data->translation, RED);
+        my_mlx_pixel_put(data, x, y, WHITE);
         x = x + d.dx;
         y = y + d.dy;
         i++;
@@ -50,7 +49,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 			*(unsigned int *)dst = color;
 		}
 }
-
 
 /*
 x' = (x - y) * cos(30)
@@ -72,15 +70,9 @@ void isometric_projection(t_data *data)
 			index = y * data->max_x + x;
 			iso_x = (data->table[y][x].x - data->table[y][x].y) * cos(DEG_TO_RAD(30));
 			iso_y = (-data->table[y][x].z + (data->table[y][x].x + data->table[y][x].y) *sin(DEG_TO_RAD(30)));
-			// if (iso_x < 0)
-			// 	iso_x *= -1;
-			// if (iso_y < 0)
-			// 	iso_y *= -1;
-			// data->table[y][x].x = iso_x;
-			// data->table[y][x].y = iso_y;
 			data->final_table[index].x = iso_x * data->scale;
 			data->final_table[index].y = iso_y * data->scale;
-			printf("iso_x: %f || iso_y: %f\n", data->final_table[index].x, data->final_table[index].y);
+			// printf("iso_x: %f || iso_y: %f\n", data->final_table[index].x, data->final_table[index].y);
 			x++;
 		}
 		y++;

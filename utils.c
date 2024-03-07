@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:23 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 18:33:50 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:25:03 by jimenasando      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,17 @@ t_data  init_values(t_data *data)
     data->max_y = 0;
     data->max_z = 0;
     data->min_z = 0;
-    data->scale = 1;
+    data->scale = 0;
     data->translation = 1;
 	data->min_x_value = 0;
     data->min_y_value = 0;
-    data->max_x_value = (data->max_x - 1) * data->scale;
-    data->max_y_value = (data->max_y - 1) * data->scale;
+    data->max_x_value = 0;
+    data->max_y_value = 0;
+	data->win_width = 0;
+    data->win_height = 0;
 	// data->alpha = 30.0 * (PI / 180.0);
 	// data->altitude = 35.264 * (PI / 180.0);
     data->table = NULL;
-
     return(*data);
 }
 
@@ -46,8 +47,8 @@ void	center_map(t_data *data)
 	int	y;
 	int	index;
 
-	x_offset = (data->win_width - (data->max_x * data->scale)) / 2;
-	y_offset = (data->win_height - (data->max_y * data->scale)) / 2;
+	x_offset = (WIN_WIDTH - (data->max_x * data->scale)) / 2;
+	y_offset = (WIN_HEIGHT - (data->max_y * data->scale)) / 2;
 	y = 0;
 	while (y < data->max_y)
 	{
@@ -55,9 +56,9 @@ void	center_map(t_data *data)
 		while (x < data->max_x)
 		{
 			index = y * data->max_x + x;
-			data->final_table[index].x -= x_offset;
-			data->final_table[index].y -= y_offset;
-			printf("x_afteroffset: %f || y_afteroffset: %f\n", data->final_table[index].x, data->final_table[index].y);
+			data->final_table[index].x += x_offset;
+			data->final_table[index].y += y_offset;
+			// printf("x_afteroffset: %f || y_afteroffset: %f\n", data->final_table[index].x, data->final_table[index].y);
 			x++;
 		}
 		y++;
@@ -70,13 +71,13 @@ void find_min_max(t_data *data)
 	int		j;
 
 	i = 0;
-	j = 0;
 	data->min_x_value = FLT_MAX;
 	data->min_y_value = FLT_MAX;
 	data->max_x_value = FLT_MIN;
 	data->max_y_value = FLT_MIN;
 	while (i < data->max_y)
 	{
+		j = 0;
 		while(j < data->max_x)
 		{
 			data->min_x_value = fmin(data->min_x_value, data->table[i][j].x);
@@ -152,9 +153,9 @@ void	calculate_scale(t_data *data)
 	float	scale_x;
 	float	scale_y;
 
-	scale_x = (float)(WIN_WIDTH /2) / (data->max_x_value - data->min_x_value);
+	scale_x = (float)(WIN_WIDTH / 2) / (data->max_x_value - data->min_x_value);
 	scale_y = (float)(WIN_HEIGHT / 2) / (data->max_y_value - data->min_y_value);
 
-	data->scale = fmin(scale_x, scale_y);
+	data->scale = fmin(scale_x, scale_y); //add * data->zoom
 	
 }
