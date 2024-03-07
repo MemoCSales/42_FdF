@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:59:19 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 18:06:17 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:37:47 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int	init_fdf(t_data *data)
 	// data->win_width = WIN_WIDTH;
 	// data->win_height = WIN_HEIGHT;
 	// calculate_scale(data);
-	data->win_width = data->max_x * data->scale + 100;
-    data->win_height = data->max_y * data->scale + 125;
+	data->win_width = data->max_x * data->scale + 700;
+    data->win_height = data->max_y * data->scale + 500;
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
 	{
 		free(data->mlx);
 		print_error("Error in mlx_init");
 	}
-	data->win = mlx_new_window(data->mlx, data->win_width, data->win_height, "FdF");
-	data->img = mlx_new_image(data->mlx, data->win_width, data->win_height);
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
+	data->img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	data->address = mlx_get_data_addr(data->img, &data->bits_per_pixel, \
 									&data->line_length, &data->endian);
 	final_table(data); //this function may not be useful anymore

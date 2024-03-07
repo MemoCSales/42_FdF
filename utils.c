@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:23 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/07 18:30:14 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:33:50 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_data  init_values(t_data *data)
     data->max_y = 0;
     data->max_z = 0;
     data->min_z = 0;
-    data->scale = 50;
+    data->scale = 1;
     data->translation = 1;
 	data->min_x_value = 0;
     data->min_y_value = 0;
@@ -151,13 +151,9 @@ void	calculate_scale(t_data *data)
 	// data->scale = (float)min_window_size / max_dimension;
 	float	scale_x;
 	float	scale_y;
-	// float	map_width;
-	// float	map_height;
 
-	// map_width = data->max_x * data->scale;
-	// map_height = data->max_y * data->scale;
-	scale_x = (float)(WIN_WIDTH - 10.0) / (data->max_x_value - data->min_x_value);
-	scale_y = (float)(WIN_HEIGHT - 10.0) / (data->max_y_value - data->min_y_value);
+	scale_x = (float)(WIN_WIDTH /2) / (data->max_x_value - data->min_x_value);
+	scale_y = (float)(WIN_HEIGHT / 2) / (data->max_y_value - data->min_y_value);
 
 	data->scale = fmin(scale_x, scale_y);
 	
