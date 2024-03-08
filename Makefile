@@ -5,11 +5,11 @@ LIBFT_DIRECTORY  = ./libft/
 LIBFT	= $(LIBFT_DIRECTORY)libft.a
 
 # MINILIBX
-# MINILIBX_DIRECTORY = ./mlx_linux/
-# MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
-#MINILIBX
-MINILIBX_DIRECTORY = ./mlx_macos/
+MINILIBX_DIRECTORY = ./mlx_linux/
 MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
+#MINILIBX
+# MINILIBX_DIRECTORY = ./mlx_macos/
+# MINILIBX = $(MINILIBX_DIRECTORY)libmlx.a
 
 #SUPPORT FILES
 SUPPORT_DIRECTORY = ./srcs/
@@ -18,8 +18,8 @@ SUPPORT = $(SUPPORT_DIRECTORY)/srcs.a
 OBJ_DIR	= obj/
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -g
-# MLX_FLAGS = -L/usr/X11/lib -lX11 -lXext -lm
-MLX_FLAGS = -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -L/usr/X11/lib -lX11 -lXext -lm
+# MLX_FLAGS = -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
 
 
 
@@ -29,7 +29,7 @@ SRC = 	main.c \
 		map_data.c \
 		points.c \
 		utils.c \
-		# hooks.c \
+		hooks.c \
 
 all: $(NAME)
 

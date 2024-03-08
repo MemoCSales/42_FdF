@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
+/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:23 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 00:25:03 by jimenasando      ###   ########.fr       */
+/*   Updated: 2024/03/08 12:26:19 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ void	calculate_scale(t_data *data)
 	float	scale_x;
 	float	scale_y;
 
-	scale_x = (float)(WIN_WIDTH / 2) / (data->max_x_value - data->min_x_value);
-	scale_y = (float)(WIN_HEIGHT / 2) / (data->max_y_value - data->min_y_value);
+	scale_x = (float)(WIN_WIDTH / 2) / (data->max_x_value);
+	scale_y = (float)(WIN_HEIGHT / 2) / (data->max_y_value);
 
 	data->scale = fmin(scale_x, scale_y); //add * data->zoom
 	

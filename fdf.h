@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
+/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:50 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 00:11:23 by jimenasando      ###   ########.fr       */
+/*   Updated: 2024/03/08 11:30:03 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-// # include "mlx_linux/mlx.h"
-// # include "X11/X.h"
-// # include "X11/keysym.h"
+# include "mlx_linux/mlx.h"
+# include "X11/X.h"
+# include "X11/keysym.h"
 # include "mlx_macos/mlx.h"
 # include "srcs/ft_printf.h"
 # include "./libft/libft.h"
@@ -81,6 +81,8 @@ typedef struct s_data
 	char	*map_path;
 	int		win_width;
 	int		win_height;
+	float	max_iso_x;
+	float	max_iso_y;
 	float	alpha;
 	float	altitude;
 	t_point	**table;

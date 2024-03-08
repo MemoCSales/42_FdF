@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
+/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:55 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 00:21:43 by jimenasando      ###   ########.fr       */
+/*   Updated: 2024/03/08 12:53:19 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,28 @@ void isometric_projection(t_data *data)
 	int		x;
 	int		y;
 	int		index;
-	
+	// float	max_iso_x = 0;
+	// float	max_iso_y = 0;
+
+	// data->max_iso_x = 0;
+	// data->max_iso_y = 0;
+	// y = 0;
+	// while (y < data->max_y)
+	// 	{
+	// 		x = 0;
+	// 		while (x < data->max_x)
+	// 		{
+	// 			iso_x = (data->table[y][x].x - data->table[y][x].y) * cos(DEG_TO_RAD(30));
+	// 			iso_y = (-data->table[y][x].z + (data->table[y][x].x + data->table[y][x].y) *sin(DEG_TO_RAD(30)));
+	// 			if (fabs(iso_x) > data->max_iso_x )
+	// 				data->max_iso_x = fabs(iso_x);
+	// 			if (fabs(iso_y) > data->max_iso_y)
+	// 				data->max_iso_y = fabs(iso_y);
+	// 			x++;
+	// 		}
+	// 		y++;
+	// 	}
+
 	y = 0;
 	while (y < data->max_y)
 	{
@@ -78,31 +99,45 @@ void isometric_projection(t_data *data)
 		y++;
 	}
 }
-// void	isometric_projection(t_point *x, t_point *y)
+
+//CHECK IT LATER DONT DELETE
+// void isometric_projection(t_data *data)
 // {
-// 	float	old_x = x->x;
-// 	float	old_y = y->y;
+//     float iso_x;
+//     float iso_y;
+//     int x;
+//     int y;
+//     float min_iso_x = FLT_MAX;
+//     float min_iso_y = FLT_MAX;
+//     float max_iso_x = FLT_MIN;
+//     float max_iso_y = FLT_MIN;
 
-// 	x->x = (old_x - old_y) * cos(0.523599);
-// 	x->y = (old_x + old_y - (2 * y->z)) * sin(0.523599);
+//     // Calculate the range of x and y values after the isometric projection
+//     for (y = 0; y < data->max_y; y++)
+//     {
+//         for (x = 0; x < data->max_x; x++)
+//         {
+//             iso_x = (data->table[y][x].x - data->table[y][x].y) * cos(DEG_TO_RAD(30));
+//             iso_y = (-data->table[y][x].z + (data->table[y][x].x + data->table[y][x].y) * sin(DEG_TO_RAD(30)));
+//             min_iso_x = fminf(min_iso_x, iso_x);
+//             min_iso_y = fminf(min_iso_y, iso_y);
+//             max_iso_x = fmaxf(max_iso_x, iso_x);
+//             max_iso_y = fmaxf(max_iso_y, iso_y);
+//         }
+//     }
 
-// 	old_x = x->x;
-// 	old_y = y->y;
+//     // Determine the scale factor
+//     float scale_x = data->win_width / (max_iso_x - min_iso_x);
+//     float scale_y = data->win_height / (max_iso_y - min_iso_y);
+//     float scale = fminf(scale_x, scale_y);
 
-// 	y->x = (old_x - old_y) * cos(0.523599);
-// 	y->y = (old_x + old_y - 2 * y->z) * sin(0.523599);
-// }
-
-// void isometric_projection(t_final *x, t_final *y)
-// {
-// 	t_final old_x;
-// 	t_final	old_y;
-
-// 	old_x = *x;
-// 	old_y = *y;
-// 	x->x = (old_x.x - old_x.y) * cos(0.523599);
-// 	x->y = (old_x.x - old_x.y) * sin(0.523599);
-// 	y->x = (old_y.x - old_y.y) * cos(0.523599);
-// 	y->y = (old_y.x + old_y.y) * sin(0.523599);
-// 	printf("x->x = %f || x->y = %f\n", x->x, x->y);
+//     // Adjust the position of the points
+//     for (y = 0; y < data->max_y; y++)
+//     {
+//         for (x = 0; x < data->max_x; x++)
+//         {
+//             data->table[y][x].x = (data->table[y][x].x - min_iso_x) * scale;
+//             data->table[y][x].y = (data->table[y][x].y - min_iso_y) * scale;
+//         }
+//     }
 // }
