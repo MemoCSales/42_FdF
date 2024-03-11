@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:34 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 17:20:13 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:50:59 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	map_size(t_data *data, char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		print_error("Map does not exists!");
-	while ((line = get_next_line(fd)) != NULL && line)
+	line = get_next_line(fd);
+	while (line != NULL && line)
 	{
 		if (data->max_y == 0)
 		{
@@ -35,6 +36,7 @@ void	map_size(t_data *data, char *filename)
 		}
 		data->max_y++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 }
@@ -47,7 +49,8 @@ void	map_format(t_data *data, char *filename)
 	int		i;
 
 	fd = open(filename, O_RDONLY);
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		map = ft_split(line, ' ');
 		i = 0;
@@ -60,6 +63,7 @@ void	map_format(t_data *data, char *filename)
 		if (i < data->max_x)
 			print_error("Wrong map format");
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 }
@@ -99,8 +103,8 @@ void	map_parse(t_data *data, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	point[1] = 0;
-	// line = get_next_line(fd);
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
 		split = ft_split(line, ' ');
 		point[0] = 0;
@@ -113,6 +117,7 @@ void	map_parse(t_data *data, char *filename)
 		free(split);
 		free(line);
 		point[1]++;
+		line = get_next_line(fd);
 	}
 	close(fd);
 }

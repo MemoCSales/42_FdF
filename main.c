@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:54:24 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 17:45:50 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:47:13 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,5 @@ int	main(int argc, char **argv)
 	map_parse(&filename, filename.map_path);
 	find_min_max(&filename);
 	init_fdf(&filename);
-	// free(filename.final_table);
-	// free(filename.table);
-	free_memory(&filename);
-	ft_cleanup(filename.table, 3);
 	return (0);
 }

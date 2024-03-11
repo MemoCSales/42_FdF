@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:19 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 14:26:33 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:49:23 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	connect_point(t_data *data)
 		}
 		y++;
 	}
-	// probably free memory here of the final table;
+	free(data->final_table);
 }
 
 void	connect_x_y(t_data *data, int i)
