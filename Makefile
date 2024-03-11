@@ -21,8 +21,6 @@ CFLAGS	= -Wall -Wextra -Werror -g
 MLX_FLAGS = -L/usr/X11/lib -lX11 -lXext -lm
 # MLX_FLAGS = -L./mlx_macos -lmlx -framework OpenGL -framework AppKit
 
-
-
 SRC = 	main.c \
 		draw.c \
 		fdf.c \
@@ -47,7 +45,6 @@ $(MINILIBX):
 
 $(NAME): $(OBJ) $(LIBFT) $(SUPPORT) $(MINILIBX)
 			$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(SUPPORT) $(MINILIBX) $(MLX_FLAGS) -o $(NAME)
-#			@echo "DO NOT FORGET TO UNCOMMENT THE CC FLAGS"
 
 $(OBJ_DIR)%.o: %.c
 			@mkdir -p $(@D)

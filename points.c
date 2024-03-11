@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:19 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 11:50:33 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:26:33 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	get_point(t_data *data, char *point, int x, int y)
 
 void	connect_point(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	data->i = 0;
 	y = 0;
-	while (y <  data->max_y)
+	while (y < data->max_y)
 	{
 		x = 0;
 		while (x < data->max_x)
@@ -54,41 +54,8 @@ void	connect_point(t_data *data)
 		}
 		y++;
 	}
-	//probably free memory here of the final table;
+	// probably free memory here of the final table;
 }
-
-// this function is not working now with the implementation of the iso_projection
-// void	connect_x_y(t_data *data, int i)
-// {
-// 	t_final	x;
-// 	t_final	y;
-// 	// t_point		x;
-// 	// t_point		y;
-// 	int		row;
-// 	int		col;
-
-// 	row = i / data->max_x;
-// 	col = i % data->max_x;
-// 	x.x = data->table[row][col].x * data->scale;
-// 	x.y = data->table[row][col].y * data->scale;
-// 	// x.z = data->table[row][col].z;
-// 	if (col < data->max_x - 1)
-// 	{
-// 		y.x = data->table[row][col + 1].x * data->scale;
-// 		y.y = data->table[row][col + 1].y * data->scale;
-// 		// y.z = data->table[row][col + 1].z;
-// 		// isometric_projection(&x, &y);
-// 		dda_algo(data, x, y);
-// 	}
-// 	if (row < data->max_y - 1)
-// 	{
-// 		y.x = data->table[row + 1][col].x * data->scale;
-// 		y.y = data->table[row + 1][col].y * data->scale;
-// 		// y.z = data->table[row + 1][col].z;
-// 		// isometric_projection(&x, &y);
-// 		dda_algo(data, x, y);
-// 	}
-// }
 
 void	connect_x_y(t_data *data, int i)
 {
@@ -117,4 +84,15 @@ void	connect_x_y(t_data *data, int i)
 		y.y = data->final_table[index].y;
 		dda_algo(data, x, y);
 	}
+}
+
+void	calculate_scale(t_data *data)
+{
+	float	scale_x;
+	float	scale_y;
+
+	scale_x = (float)(WIN_WIDTH) / (2 * data->max_x);
+	scale_y = (float)(WIN_HEIGHT) / (2 * data->max_y);
+	data->scale = (fmin(scale_x, scale_y) / 2);
+	data->scale *= data->zoom;
 }

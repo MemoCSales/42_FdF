@@ -6,13 +6,13 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:54:24 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 11:54:27 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:45:50 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	filename;
 	char	*path;
@@ -27,11 +27,10 @@ int main(int argc, char **argv)
 	init_coordinates(&filename);
 	map_parse(&filename, filename.map_path);
 	find_min_max(&filename);
-	calculate_scale(&filename);
-	// center_map(&filename);
 	init_fdf(&filename);
-	// print_final_table(&filename);
-	// print_map(&filename);
-	// printf("Map size-> width: %d, height: %d\n", filename.max_x, filename.max_y);
-	return(0);
+	// free(filename.final_table);
+	// free(filename.table);
+	free_memory(&filename);
+	ft_cleanup(filename.table, 3);
+	return (0);
 }

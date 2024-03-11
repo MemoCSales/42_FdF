@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jimenasandoval <jimenasandoval@student.    +#+  +:+       +#+        */
+/*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:34 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/08 00:18:14 by jimenasando      ###   ########.fr       */
+/*   Updated: 2024/03/11 17:20:13 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "fdf.h"
 
@@ -67,16 +66,16 @@ void	map_format(t_data *data, char *filename)
 
 void	init_coordinates(t_data *data)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
-	data->table = malloc (data->max_y * sizeof(t_point*));
+	data->table = malloc(data->max_y * sizeof(t_point *));
 	if (!data->table)
-		printf("Allocation of x coordinate failed");
+		print_error("Allocation of x coordinate failed");
 	y = 0;
 	while (y < data->max_y)
 	{
-		data->table[y] = malloc (data->max_x * sizeof(t_point));
+		data->table[y] = malloc(data->max_x * sizeof(t_point));
 		if (!data->table[y])
 			print_error("Allocation of y coordinate failed");
 		x = 0;
@@ -90,6 +89,7 @@ void	init_coordinates(t_data *data)
 		y++;
 	}
 }
+
 void	map_parse(t_data *data, char *filename)
 {
 	char	**split;
@@ -99,6 +99,7 @@ void	map_parse(t_data *data, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	point[1] = 0;
+	// line = get_next_line(fd);
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		split = ft_split(line, ' ');
@@ -118,9 +119,9 @@ void	map_parse(t_data *data, char *filename)
 
 void	final_table(t_data *data)
 {
-	int		x;
-	int		y;
-	int		index;
+	int	x;
+	int	y;
+	int	index;
 
 	y = 0;
 	x = 0;
@@ -138,25 +139,4 @@ void	final_table(t_data *data)
 		}
 		y++;
 	}
-}
-
-void print_final_table(t_data *data) {
-    int x, y, index;
-
-    for (y = 0; y < data->max_y; y++) {
-        for (x = 0; x < data->max_x; x++) {
-            index = y * data->max_x + x;
-            printf("Final point at [%d][%d]: x = %f, y = %f\n", y, x, data->final_table[index].x, data->final_table[index].y);
-        }
-    }
-}
-
-void print_map(t_data *data) {
-    int x, y;
-
-    for (y = 0; y < data->max_y; y++) {
-        for (x = 0; x < data->max_x; x++) {
-            printf("Point at [%d][%d]: x = %f, y = %f, z = %f\n", y, x, data->table[y][x].x, data->table[y][x].y, data->table[y][x].z);
-        }
-    }
 }
