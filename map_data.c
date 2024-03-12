@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:34 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 20:50:59 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:23:27 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ void	map_parse(t_data *data, char *filename)
 			free(split[point[0]]);
 			point[0]++;
 		}
-		free(split);
 		free(line);
+		free(split);
 		point[1]++;
 		line = get_next_line(fd);
 	}

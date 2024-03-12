@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:50 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 17:41:43 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:16:58 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,7 @@ void		center_map(t_data *data);
 void		find_min_max(t_data *data);
 void		adjust_negatives(t_data *data);
 void		calculate_scale(t_data *data);
-void	free_memory(t_data *filename);
-void ft_cleanup(t_point **table, int x);
+void		find_min_values(t_data *data, float *min_x, float *min_y);
 
 // map_data.c
 void		map_size(t_data *data, char *filename);
@@ -118,9 +117,6 @@ void		map_format(t_data *data, char *filename);
 void		init_coordinates(t_data *data);
 void		map_parse(t_data *data, char *filename);
 void		final_table(t_data *data);
-
-void		print_map(t_data *data);
-void		print_final_table(t_data *data);
 
 // points.c
 void		get_point(t_data *data, char *point, int x, int y);
@@ -141,9 +137,5 @@ void		ft_hooks(t_data *data);
 int			key_layout(int key, t_data *data);
 int			close_win(t_data *data);
 int			handle_zoom(int key, t_data *data);
-int			handle_key_press(int key, t_data *data);
-int			handle_key_release(int key, t_data *data);
-int			handle_movement(t_data *data);
-int			handle_loop(t_data *data);
 
 #endif

@@ -28,6 +28,7 @@ SRC = 	main.c \
 		points.c \
 		utils.c \
 		hooks.c \
+		utils2.c
 
 all: $(NAME)
 

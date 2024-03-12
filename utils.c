@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:23 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 17:45:12 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:48:42 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_data	init_values(t_data *data)
 	return (*data);
 }
 
-// probably delete this function later
 void	center_map(t_data *data)
 {
 	int	x_offset;
@@ -90,62 +89,19 @@ void	find_min_max(t_data *data)
 	}
 }
 
-void	adjust_negatives(t_data *data)
+void	find_min_values(t_data *data, float *min_x, float *min_y)
 {
-	float	min_x;
-	float	min_y;
-	int		i;
+	int	i;
 
-	min_x = 0;
-	min_y = 0;
+	*min_x = 0;
+	*min_y = 0;
 	i = 0;
 	while (i < data->max_x * data->max_y)
 	{
-		if (data->final_table[i].x < min_x)
-			min_x = data->final_table[i].x;
-		if (data->final_table[i].y < min_y)
-			min_y = data->final_table[i].y;
+		if (data->final_table[i].x < *min_x)
+			*min_x = data->final_table[i].x;
+		if (data->final_table[i].y < *min_y)
+			*min_y = data->final_table[i].y;
 		i++;
 	}
-	if (min_x < 0 || min_y < 0)
-	{
-		i = 0;
-		while (i < data->max_x * data->max_y)
-		{
-			if (min_x < 0)
-				data->final_table[i].x -= min_x;
-			if (min_y < 0)
-				data->final_table[i].y -= min_y;
-			i++;
-		}
-	}
-}
-
-void	free_memory(t_data *filename)
-{
-	if (filename->final_table != NULL)
-	{
-		printf("freeing\n");
-		free(filename->final_table);
-		filename->final_table = NULL;
-	}
-}
-
-void ft_cleanup(t_point **table, int x)
-{
-	int	i;
-	
-	if(table == NULL)
-		return ;
-	i = 0;
-	while (i < x)
-	{
-		if (table[i] != NULL)
-		{
-			free(table[i]);
-			table[i] = NULL;
-		}
-		i++;
-	}
-	free(table);
 }

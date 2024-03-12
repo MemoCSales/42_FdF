@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:18:48 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/02/06 19:26:43 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:12:20 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,37 +55,20 @@ char	**ft_split(const char *s, char c)
 			j++;
 		}
 	}
+	// clean_upsubstr(res, i, j);
 	res[j] = NULL;
 	return (res);
 }
 
-// int main(int argc, char *argv[])
-// {
-//     if (argc != 3)
-//     {
-//         printf("Usage: %s <string> <delimiter>\n", argv[0]);
-//         return 1;
-//     }
 
-//     const char *input_str = argv[1];
-//     char delimiter = argv[2][0];
-
-//     char **result = ft_split(input_str, delimiter);
-
-//     if (!result)
-//     {
-//         printf("Error splitting the string.\n");
-//         return 1;
-//     }
-
-//     printf("Words after splitting:\n");
-//     for (int i = 0; result[i] != NULL; ++i)
-//     {
-//         printf("%s\n", result[i]);
-//         free(result[i]); // Free each allocated word
-//     }
-
-//     free(result); // Free the array of words
-
-//     return 0;
-// }
+void	clean_upsubstr(char **res, int i, int j)
+{
+	// printf("j: %d\n", j);
+	while (i < j)
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+	
+}

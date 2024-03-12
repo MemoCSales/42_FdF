@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:54:24 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 20:47:13 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:15:03 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	char	*path;
 
 	if (argc != 2)
-		print_error("Error... Not enough arguments");
+		print_error("Error... Not enough or too many arguments");
 	path = argv[1];
 	init_values(&filename);
 	filename.map_path = ft_strjoin("./maps/", path);

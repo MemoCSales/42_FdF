@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:59:19 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/11 14:17:58 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:15:26 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	init_fdf(t_data *data)
 	data->img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	data->address = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->line_length, &data->endian);
-	mlx_loop_hook(data->mlx, render, data);
 	ft_hooks(data);
+	mlx_loop_hook(data->mlx, render, data);
 	mlx_loop(data->mlx);
 	return (0);
 }
