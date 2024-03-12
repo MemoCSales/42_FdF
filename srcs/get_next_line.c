@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:02:37 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/02/26 11:24:37 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:36:14 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*read_line(char *full_line)
 	line = ft_substr(full_line, i + 1, ft_strlen(full_line) - i);
 	if (*line == 0)
 		return (free(line), NULL);
-	full_line[i+1 ] = '\0'; // change this line from i + 1 to i
+	full_line[i + 1] = '\0';
 	return (line);
 }
 
