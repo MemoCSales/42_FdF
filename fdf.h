@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:50 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 14:16:58 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:11:39 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 # include "X11/X.h"
 # include "X11/keysym.h"
 # include "mlx_linux/mlx.h"
-# include "mlx_macos/mlx.h"
 # include "srcs/ft_printf.h"
 # include <fcntl.h>
-# include <float.h>
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -28,11 +26,13 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define ZOOM_IN 1.5
-# define ZOOM_OUT 1.2
+# define ZOOM_OUT 1.5
+
+# define MAX_FLT 3.40282347e+38F
+# define MIN_FLT 1.17549435e-38F
 
 # define PI 3.14159265
 
-# define DEG_TO_RAD(degrees) ((degrees)*PI / 180.0)
 # define RED 0XFF0000
 # define WHITE 0XFFFFFF
 
@@ -41,7 +41,6 @@ typedef struct s_point
 	float	x;
 	float	y;
 	float	z;
-	// int		color;
 }			t_point;
 
 typedef struct s_final
@@ -96,10 +95,6 @@ typedef struct s_data
 	float	zoom;
 	t_point	**table;
 	t_final	*final_table;
-	int		left_pressed;
-	int		right_pressed;
-	int		up_pressed;
-	int		down_pressed;
 }			t_data;
 
 // utils.c
@@ -110,6 +105,8 @@ void		find_min_max(t_data *data);
 void		adjust_negatives(t_data *data);
 void		calculate_scale(t_data *data);
 void		find_min_values(t_data *data, float *min_x, float *min_y);
+void		free_coordinates(t_data *data);
+double		deg_to_rad(double degrees);
 
 // map_data.c
 void		map_size(t_data *data, char *filename);

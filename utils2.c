@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:32:43 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 14:16:27 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:08:11 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,26 @@ void	adjust_negatives(t_data *data)
 			i++;
 		}
 	}
+}
+
+void	free_coordinates(t_data *data)
+{
+	int	y;
+
+	if (data->table)
+	{
+		y = 0;
+		while (y < data->max_y)
+		{
+			if (data->table[y])
+				free(data->table[y]);
+			y++;
+		}
+		free(data->table);
+	}
+}
+
+double	deg_to_rad(double degrees)
+{
+	return (degrees * PI / 180.0);
 }

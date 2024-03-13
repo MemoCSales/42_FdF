@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:02:44 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/02/22 10:58:30 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:00:11 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*ft_strchr2(char *s, int c)
 		return ((char *) &s[i]);
 	return (NULL);
 }
-
 
 char	*ft_strjoin2(char *s1, char *s2)
 {

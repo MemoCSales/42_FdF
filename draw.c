@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:46:55 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 15:52:21 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:03:37 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	isometric_projection(t_data *data)
 		{
 			index = y * data->max_x + x;
 			iso_x = (data->table[y][x].x - data->table[y][x].y)
-				* cos(DEG_TO_RAD(30));
+				* cos(deg_to_rad(30));
 			iso_y = (-data->table[y][x].z + (data->table[y][x].x
-						+ data->table[y][x].y) * sin(DEG_TO_RAD(30)));
+						+ data->table[y][x].y) * sin(deg_to_rad(30)));
 			data->final_table[index].x = iso_x * data->scale;
 			data->final_table[index].y = iso_y * data->scale;
 			x++;

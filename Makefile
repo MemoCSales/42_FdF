@@ -66,6 +66,6 @@ fclean: clean
 re: fclean all
 
 norminette: 
-		norminette $(SRC) $(SUPPORT_DIRECTORY) fdf.h $(LIBFT)
+		norminette $(SRC) $(SUPPORT_DIRECTORY) fdf.h $(LIBFT_DIRECTORY)
 
 .PHONY: all clean fclean re

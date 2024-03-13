@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:18:48 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 13:12:20 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:59:49 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	word_count(const char *str, char chr)
 	i = 0;
 	while (str[i])
 	{
-		if ((i == 0 || str[i -1] == chr) && str[i] != chr)
+		if ((i == 0 || str[i - 1] == chr) && str[i] != chr)
 			word++;
 		i++;
 	}
@@ -39,7 +39,7 @@ char	**ft_split(const char *s, char c)
 
 	i = 0;
 	j = 0;
-	res = (char **) malloc(sizeof(char *) * (word_count(s, c) + 1));
+	res = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!res || !s)
 		return (NULL);
 	while (s[i] != '\0')
@@ -55,20 +55,6 @@ char	**ft_split(const char *s, char c)
 			j++;
 		}
 	}
-	// clean_upsubstr(res, i, j);
 	res[j] = NULL;
 	return (res);
-}
-
-
-void	clean_upsubstr(char **res, int i, int j)
-{
-	// printf("j: %d\n", j);
-	while (i < j)
-	{
-		free(res[i]);
-		i++;
-	}
-	free(res);
-	
 }

@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:45:23 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 13:48:42 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:31:02 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ t_data	init_values(t_data *data)
 	data->max_x_value = 0;
 	data->max_y_value = 0;
 	data->zoom = 1.0;
-	data->left_pressed = 0;
-	data->right_pressed = 0;
-	data->up_pressed = 0;
-	data->down_pressed = 0;
 	data->table = NULL;
 	return (*data);
 }
@@ -47,8 +43,8 @@ void	center_map(t_data *data)
 	int	y;
 	int	index;
 
-	x_offset = (WIN_WIDTH - (data->max_x * data->scale)) / 2;
-	y_offset = (WIN_HEIGHT - (data->max_y * data->scale)) / 2;
+	x_offset = WIN_WIDTH / 2 - (data->max_x * data->scale);
+	y_offset = WIN_HEIGHT / 2 - (data->max_y * data->scale);
 	y = 0;
 	while (y < data->max_y)
 	{
@@ -70,10 +66,10 @@ void	find_min_max(t_data *data)
 	int	j;
 
 	i = 0;
-	data->min_x_value = FLT_MAX;
-	data->min_y_value = FLT_MAX;
-	data->max_x_value = FLT_MIN;
-	data->max_y_value = FLT_MIN;
+	data->min_x_value = MAX_FLT;
+	data->min_y_value = MAX_FLT;
+	data->max_x_value = MIN_FLT;
+	data->max_y_value = MIN_FLT;
 	while (i < data->max_y)
 	{
 		j = 0;

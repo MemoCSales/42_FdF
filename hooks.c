@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:59:56 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 14:15:31 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:23:36 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	key_layout(int key, t_data *data)
 
 int	close_win(t_data *data)
 {
+	free_coordinates(data);
 	mlx_destroy_window(data->mlx, data->win);
 	exit(0);
 }

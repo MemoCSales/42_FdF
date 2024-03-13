@@ -6,7 +6,7 @@
 /*   By: mcruz-sa <mcruz-sa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:59:19 by mcruz-sa          #+#    #+#             */
-/*   Updated: 2024/03/12 14:15:26 by mcruz-sa         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:29:25 by mcruz-sa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	render(t_data *data)
 			&data->line_length, &data->endian);
 	final_table(data);
 	isometric_projection(data);
-	center_map(data);
 	adjust_negatives(data);
+	center_map(data);
 	connect_point(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (0);
