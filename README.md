@@ -1,4 +1,3 @@
-
 <h1 align="center">FdF - A wireframe model</h1>
 
 <p align="center">This project is about showing a landscape as a 3D object with lines outlining all surfaces.
