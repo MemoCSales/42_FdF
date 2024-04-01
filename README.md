@@ -69,6 +69,4 @@ Go to the maps directory inside the root directory to find the name of the map y
 - [MinilibX Guide](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html)
 - [MinilibX Guide by Aurelien Brabant](https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx)
 - [Introduction of MinilibX by Oceano (youtube video)](https://www.youtube.com/watch?v=bYS93r6U0zg)
-- [Carol Daniel - 42SP](https://github.com/caroldaniel/42sp-cursus-fdf/blob/master/README.md)
-- [Aitor Lopez - 42Barcelona](https://github.com/ailopez-o/42Barcelona-FdF/tree/main)
 
