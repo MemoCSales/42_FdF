@@ -7,7 +7,7 @@ All in pure C programming language.  </p>
 
 <p align="center">
   <a href="#Instructions">Instructions</a> &#xa0; | &#xa0;
-  <a href="#Allowed functions">Allowed functions</a> &#xa0; | &#xa0;
+  <a href="#Allowed_functions">Allowed functions</a> &#xa0; | &#xa0;
   <a href="#Screenshots">Screenshots</a> &#xa0; | &#xa0;
   <a href="#Features">Features</a> &#xa0; | &#xa0;
   <a href="#Installation">Installation</a> &#xa0; | &#xa0;
