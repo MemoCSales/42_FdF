@@ -67,11 +67,12 @@ Go to the maps directory inside the root directory to find the name of the map y
 
 ## Resources
 
-- [MinilibX Guide](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html)
-- [MinilibX Guide by Aurelien Brabant](https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx)
+- [MinilibX Guide](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html){target="_blank"}
+  
+- [MinilibX Guide by Aurelien Brabant](https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx){target="_blank"}
 
-- [Introduction of MinilibX by Oceano (youtube video)](https://www.youtube.com/watch?v=bYS93r6U0zg)
+- [Introduction of MinilibX by Oceano (youtube video)](https://www.youtube.com/watch?v=bYS93r6U0zg){target="_blank"}
 
-- [Carol Daniel - 42SP](https://github.com/caroldaniel/42sp-cursus-fdf/blob/master/README.md)
+- [Carol Daniel - 42SP](https://github.com/caroldaniel/42sp-cursus-fdf/blob/master/README.md){target="_blank"}
 
-- [Aitor Lopez - 42Barcelona](https://github.com/ailopez-o/42Barcelona-FdF/tree/main)
+- [Aitor Lopez - 42Barcelona](https://github.com/ailopez-o/42Barcelona-FdF/tree/main){target="_blank"}
