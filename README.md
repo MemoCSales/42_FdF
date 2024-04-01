@@ -3,7 +3,6 @@
 
 <p align="center">This project is about showing a landscape as a 3D object with lines outlining all surfaces.
 Using the MinilbX library, this project goal is to get familiarized with tools to open windows, create images and deal with keyboard and mouse events. (Supported in Linux)
-
 All in pure C programming language.  </p>
 
 <p align="center">
