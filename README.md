@@ -1,11 +1,19 @@
 
-# FdF - A wireframe model
+<h1 align="center">FdF - A wireframe model</h1>
 
-This project is about showing a landscape as a 3D object with lines outlining all surfaces.
+<h2 align="center">This project is about showing a landscape as a 3D object with lines outlining all surfaces.
 Using the MinilbX library, this project goal is to get familiarized with tools to open windows, create images and deal with keyboard and mouse events. (Supported in Linux)
 
-All in pure C programming language.
+All in pure C programming language.  </h2>
 
+<p align="center">
+  <a href="#about">Instructions</a> &#xa0; | &#xa0;
+  <a href="#requirements">Allowed functions</a> &#xa0; | &#xa0;
+  <a href="#Results">Screenshots</a> &#xa0; | &#xa0;
+  <a href="#Results">Features</a> &#xa0; | &#xa0;
+  <a href="#Results">Installation</a> &#xa0; | &#xa0;
+  <a href="#Results">Deployment</a> &#xa0; | &#xa0;
+</p>
 
 ## Instructions
 
@@ -22,6 +30,7 @@ All in pure C programming language.
 - All functions of the math library (-lm compiler option man man 3 math)
 - All functions of the MiniLibX
 - ft_printf and any equivalent
+
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
