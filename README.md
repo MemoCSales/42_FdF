@@ -6,12 +6,12 @@ Using the MinilbX library, this project goal is to get familiarized with tools t
 All in pure C programming language.  </p>
 
 <p align="center">
-  <a href="#about">Instructions</a> &#xa0; | &#xa0;
-  <a href="#requirements">Allowed functions</a> &#xa0; | &#xa0;
-  <a href="#Results">Screenshots</a> &#xa0; | &#xa0;
-  <a href="#Results">Features</a> &#xa0; | &#xa0;
-  <a href="#Results">Installation</a> &#xa0; | &#xa0;
-  <a href="#Results">Deployment</a> &#xa0; | &#xa0;
+  <a href="#Instructions">Instructions</a> &#xa0; | &#xa0;
+  <a href="#Allowed functions">Allowed functions</a> &#xa0; | &#xa0;
+  <a href="#Screenshots">Screenshots</a> &#xa0; | &#xa0;
+  <a href="#Features">Features</a> &#xa0; | &#xa0;
+  <a href="#Installation">Installation</a> &#xa0; | &#xa0;
+  <a href="#Deployment">Deployment</a> &#xa0; | &#xa0;
 </p>
 
 ## Instructions
