@@ -7,7 +7,7 @@ All in pure C programming language.  </p>
 
 <p align="center">
   <a href="#Instructions">Instructions</a> &#xa0; | &#xa0;
-  <a href="#Allowed">Allowed functions</a> &#xa0; | &#xa0;
+  <a href="#Allowed_functions">Allowed functions</a> &#xa0; | &#xa0;
   <a href="#Screenshots">Screenshots</a> &#xa0; | &#xa0;
   <a href="#Features">Features</a> &#xa0; | &#xa0;
   <a href="#Installation">Installation</a> &#xa0; | &#xa0;
@@ -23,7 +23,7 @@ All in pure C programming language.  </p>
 - All heap memory allocation must be properly freed.
 - The `Makefile` must at least contain the rules: `$(NAME)`, `all`, `clean`, `fclean` and `re`. And it should not relink.
 
-## Allowed functions
+## Allowed_functions
 
 - `open`, `close`, `read`, `write`, `malloc`, `free`, `perror`, `strerror`, `exit`
 - All functions of the math library (-lm compiler option man man 3 math)
