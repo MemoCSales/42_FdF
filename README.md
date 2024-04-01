@@ -32,7 +32,8 @@ All in pure C programming language.  </p>
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="850px" src=https://github.com/MemoCSales/42_FdF/blob/master/images/FdF-42.png alt="FdF"/>
+<img width="850px" src=https://github.com/MemoCSales/42_FdF/blob/master/images/FdF-42-map.png alt="FdF-map"/>
 
 
 ### Features (for linux)
